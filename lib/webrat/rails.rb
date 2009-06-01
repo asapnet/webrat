@@ -2,7 +2,11 @@ require "webrat"
 
 require "action_controller"
 require "action_controller/integration"
-require "action_controller/record_identifier" rescue nil
+begin
+  require "action_controller/record_identifier"
+rescue Exception
+  nil
+end
 
 module Webrat
   class RailsSession < Session #:nodoc:
